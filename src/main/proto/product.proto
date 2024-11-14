@@ -1,0 +1,23 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "br.com.inoovexa.grpc";
+
+package br.com.inoovexa.grpc;
+
+service ProductService {
+    rpc ListProducts (ListProductsRequest) returns (ListProductsResponse);
+}
+
+message ListProductsRequest {
+}
+
+message ProductProto {
+    int64 id = 1;
+    string name = 2;
+    double price = 3;
+}
+
+message ListProductsResponse {
+    repeated ProductProto products = 1;
+}
